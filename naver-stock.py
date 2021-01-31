@@ -1,4 +1,5 @@
 import pandas as pd
+import requests
 
 stock_code = pd.read_html('http://kind.krx.co.kr/corpgeneral/corpList.do?method=download', header=0)[0]
 
@@ -13,12 +14,14 @@ stock_code.code = stock_code.code.map('{:06d}'.format)
 company = 'LG화학'
 code = stock_code[stock_code.company==company].code.values[0].strip()
 
+headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36'}
 df = pd.DataFrame()
 for page in range(1, 10):
     url = 'https://finance.naver.com/item/sise_day.nhn?code={code}'.format(code=code)
     url = '{url}&page={page}'.format(url=url, page=page)
+    res = requests.get(url, headers = headers).text
     print(url)
-    df = df.append(pd.read_html(url, header=0)[0], ignore_index=True)
+    df = df.append(pd.read_html(res, header=0)[0], ignore_index=True)
 
 df = df.dropna()
 
@@ -51,4 +54,4 @@ plt.tick_params(
     top=False,         # ticks along the top edge are off
     labelbottom=False) # labels along the bottom edge are off
 plt.savefig(company + ".png")
-plt.show()
+plt.show() 
