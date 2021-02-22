@@ -34,7 +34,7 @@ stage_size = stage.get_rect().size
 stage_height = stage_size[1]
 
 # 캐릭터(스프라이트) 불러오기
-character = pygame.image.load(os.path.join(image_path, "lions.jpg"))
+character = pygame.image.load(os.path.join(image_path, "00.png"))
 character_size = character.get_rect().size #이미지크기
 character_width = character_size[0]
 character_height = character_size[1] 
@@ -49,7 +49,7 @@ to_y = 0
 character_speed = 0.5
 
 # 무기
-weapon = pygame.image.load(os.path.join(image_path, "weapon.jpg"))
+weapon = pygame.image.load(os.path.join(image_path, "weapon00.png"))
 weapon_size = weapon.get_rect().size
 weapon_width = weapon_size[0]
 
