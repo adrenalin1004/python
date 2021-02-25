@@ -26,10 +26,8 @@ class main_window(tk.Frame):
         self.label.config(text=st)
 
     def M_askint(self):
-        #txt = tk.Entry(root) #2
-        #txt.pack()
         n = tk.simpledialog.askinteger("Input integer", "Fibonacci in")
-        fn = math.ceil(n) #3
+        fn = self.M_fibonacci(n) #3
         self.set(fn)
 
 
