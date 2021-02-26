@@ -8,7 +8,7 @@ class main_window(tk.Frame):
         super(main_window, self).__init__(parent)
         parent.title("Fibonacci")
         parent.minsize(200,100)
-        self.label = tk.Label(root, text = 'Fibonocci')#1
+        self.label = tk.Label(root, text = 'Fibonocci')
         self.label.pack()
         self.buttons = tk.Button(parent, text="Integer Input", fg = "red", command = self.M_askint)
         self.buttons.pack()
@@ -27,11 +27,10 @@ class main_window(tk.Frame):
 
     def M_askint(self):
         n = tk.simpledialog.askinteger("Input integer", "Fibonacci in")
-        fn = self.M_fibonacci(n) #3
+        fn = self.M_fibonacci(n) 
         self.set(fn)
-
 
 if __name__ == '__main__':
     root = tk.Tk()
     mw = main_window(root)
-    mw.mainloop()    #4
+    mw.mainloop()    
