@@ -266,3 +266,90 @@ print(len(cook))
 nums = [1, 2, 3, 4, 5]
 average = sum(nums)/len(nums)
 print(average)
+
+#61. 날짜 정보를 제외하고 가격 정보만을 출력
+price = ['20180728', 100, 130, 140, 150, 160, 170]
+print(price[1:])
+
+#62. 슬라이싱을 사용해서 홀수만 출력
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(nums[::2])
+
+#63. 슬라이싱을 사용해서 짝수만 출력
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(nums[1::2])
+
+#64. 슬라이싱을 사용해서 리스트의 숫자를 역 방향으로 출력
+nums = [1, 2, 3, 4, 5]
+print(nums[::-1])
+
+#65. interest 리스트를 사용하여 아래와 같이 화면에 출력
+interest = ['삼성전자', 'LG전자', 'Naver']
+print(interest[0], interest[2])
+
+#66. interest 리스트를 사용하여 아래와 같이 화면에 출력
+interest = ['삼성전자', 'LG전자', 'Naver', 'SK하이닉스', '미래에셋대우']
+print(" ".join(interest))
+
+#67. join 메서드, interest 리스트를 사용하여 아래와 같이 화면에 출력
+interest = ['삼성전자', 'LG전자', 'Naver', 'SK하이닉스', '미래에셋대우']
+print("/".join(interest))
+
+#68. join 메서드, interest 리스트를 사용하여 아래와 같이 화면에 출력
+interest = ['삼성전자', 'LG전자', 'Naver', 'SK하이닉스', '미래에셋대우']
+print("\n".join(interest))
+
+#69. 문자열 split 메서드 interest 이름의 리스트로 분리 저장
+string = "삼성전자/LG전자/Naver"
+print(string.split("/"))
+
+#70. 리스트에 있는 값을 오름차순으로 정렬
+data = [2, 4, 3, 1, 5, 10, 9]
+#data.sort()
+sorted(data)
+print(data)
+
+#71. my_variable 이름의 비어있는 튜플을 만들라.
+my_variable = ()
+print(type(my_variable))
+
+#72. 영화 제목을 movie_rank 이름의 튜플에 저장
+mv = ("닥터스트레인지","스필릿","럭키")
+print(mv, type(mv))
+
+#73. 숫자 1 이 저장된 튜플을 생성, 하나의 데이터가 저장되는 경우, 아래와 같이 쉼표를 입력해만 튜플
+#tup = (1) #정수 int
+tup = (1,) #튜플 tuple
+print(tup, type(tup))
+
+#74. 오류 원인을 찾아라. 
+#t = (1, 2, 3)
+#t[0] = 'a'    #튜풀은 data(element값)을 변경 할 수 없다.
+
+#75. t가 바인딩하는 데이터 타입은 무엇
+t = 1, 2, 3, 4
+print(type(t)) #튜플은 괄호와 함께 데이터를 정의해야 하지만, 사용자 편의를 위해 괄호 없이도 동작
+
+#76. 변수 t가 ('A', 'b', 'c') 튜플을 가리키도록 수정 
+t = ('a', 'b', 'c')
+t = ('A', 'b', 'c')
+print(t)
+
+#77. 튜플을 리스트로 변환
+interest = ('삼성전자', 'LG전자', 'SK Hynix')
+interest_l=list(interest)
+print(list(interest_l), type(interest_l))
+
+#78. 리스트를 튜플로 변경
+interest = ['삼성전자', 'LG전자', 'SK Hynix']
+data = tuple(interest)
+print(data, type(data))
+
+#79. 튜플 언팩킹
+temp = ('apple', 'banana', 'cake')
+a, b, c = temp
+print(a, b, c)
+
+#80. 1 부터 99까지의 정수 중 짝수만 저장된 튜플을 생성
+data = tuple(range(2,100,2))
+print(data)
