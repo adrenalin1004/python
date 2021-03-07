@@ -1,5 +1,7 @@
 from tkinter import *
 from PIL import ImageTk #jpg 이미지를 불러올때
+import tkinter.ttk as ttk
+import time
 
 root = Tk()
 root.title("Python GUI")
@@ -7,8 +9,8 @@ root.geometry("640x800+100+100") #가로*세로 + x좌표 + y좌표
 #root.resizable(True, False) #x(너비), y(높이) 크기 변경 여부
 
 # --- 버튼----------------------------------------
-btn1 = Button(root, text = "버튼1")
-btn1.pack()
+# btn1 = Button(root, text = "버튼1")
+# btn1.pack()
 # btn2 = Button(root, padx=5, pady=15, text="버튼2")
 # btn2.pack()
 # btn3 = Button(root, padx=15, pady=5, text="버튼3")
@@ -33,7 +35,7 @@ btn = Button(root, text="클릭", command=change)
 btn.pack()
 
 # --- 텍스트----------------------------------------
-txt = Text(root, width=20, height=5)
+txt = Text(root, width=20, height=3)
 txt.pack()
 
 txt.insert(END, "글자를 입력하세요")
@@ -115,5 +117,70 @@ btn = Button(root, text="주문", command=btncmd4)
 btn.pack()
 
 # --- 콤보박스----------------------------------------
+
+values =[str(i) + "일" for i in range(1,32)]
+combobox = ttk.Combobox(root, height=5, values=values, state="readonly")
+combobox.current(0) #0번째 인덱스 값 선택
+combobox.pack()
+combobox.set("카드 결제일")
+
+def btncmd5():
+    
+    print(combobox.get()) # 0: 체크해제, 1: 체크
+
+btn = Button(root, text="콤보박스", command=btncmd5)
+btn.pack()
+
+# --- 프로그래스바----------------------------------------
+Label(root, text="----------------다운로드 진행(progressbar)--------------").pack()
+
+#progressbar1 = ttk.Progressbar(root, maximum=100, mod="determinate") #indeterminate
+p_var = DoubleVar()
+progressbar = ttk.Progressbar(root, maximum=100, length=150, variable=p_var) #indeterminate
+#progressbar.start(10) #10ms마다 움직임
+progressbar.pack()
+
+def btncmd6():
+    for i in range(101):
+        time.sleep(0.01) #0.01초 대기
+
+        p_var.set(i)
+        progressbar.update()
+        print(p_var.get())
+    progressbar.stop()
+
+btn = Button(root, text="시작", command=btncmd6)
+btn.pack()
+
+# --- 메뉴, menu----------------------------------------
+def create_new_file():
+    print("새파일을 만듭니다.")
+
+menu = Menu(root)
+menu_file = Menu(menu, tearoff=0)
+menu_file.add_command(label="New File", command=create_new_file)
+menu_file.add_command(label="New Window")
+menu_file.add_separator()
+menu_file.add_command(label="Open File...")
+menu_file.add_separator()
+menu_file.add_command(label="Save All", state="disable")
+menu_file.add_separator()
+menu_file.add_command(label="Exit", command=root.quit)
+menu.add_cascade(label="File", menu=menu_file)
+
+menu.add_cascade(label="Edit")
+
+menu_lang = Menu(menu, tearoff=0)
+menu_lang.add_radiobutton(label="python")
+menu_lang.add_radiobutton(label="java")
+menu_lang.add_radiobutton(label="C++")
+menu.add_cascade(label="Language", menu=menu_lang)
+
+menu_view = Menu(menu, tearoff=0)
+menu_view.add_checkbutton(label="show Minimap")
+menu.add_cascade(label="View", menu=menu_view)
+
+root.config(menu=menu)
+
 
 root.mainloop()
