@@ -353,3 +353,92 @@ print(a, b, c)
 #80. 1 부터 99까지의 정수 중 짝수만 저장된 튜플을 생성
 data = tuple(range(2,100,2))
 print(data)
+
+#81. 10개의 값이 저장된 scores 리스트가 있을 때, start expression을 사용하여 좌측 8개의 값을 valid_score 변수에 바인딩하여라.
+scores = [8.8, 8.9, 8.7, 9.2, 9.3, 9.7, 9.9, 9.5, 7.8, 9.4]
+#valid_score = scores[2:]
+*valid_score, _, _=scores
+print(valid_score)
+
+#82. 우측 8개의 값을 valid_score 변수에 바인딩
+scores = [8.8, 8.9, 8.7, 9.2, 9.3, 9.7, 9.9, 9.5, 7.8, 9.4]
+a, b, *v_scores=scores
+print(v_scores)
+
+#83. 가운데 있는 8개의 값을 valid_score 변수에 바인딩
+scores = [8.8, 8.9, 8.7, 9.2, 9.3, 9.7, 9.9, 9.5, 7.8, 9.4]
+a, *v_scores, b = scores
+print(v_scores)
+print(a,b)
+
+#84. temp 이름의 비어있는 딕셔너리
+temp = {}
+print(temp)
+
+#85. 아이스크림 이름과 희망 가격을 딕셔너리로 구성
+values = {"메로나":1000, "폴라포":1200, "빵빠레":1800}
+print(values)
+
+#86. 85번 딕셔너리에 가격추가
+values["죠스바"] = 1200
+values["월드콘"] = 1500
+print(values)
+
+#87. 메로나 가격을 출력
+print("메로나 가격 : ", values["메로나"])
+
+#88. 메로나 가격 1300으로 수정
+values["메로나"] = 1300
+print(values)
+
+#89. 메로나 삭제
+del values["메로나"]
+print(values)
+
+#90. 에러 발생 원인은
+# icecream = {'폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+# icecream['누가바'] # 딕셔너리에 없는 key를 사용해서
+
+#91. 리스트를 딕셔너리의 값으로 저장
+inventory = {"메로나" : [300, 20], "비비빅" : [400, 3], "죠스바" : [250,100]}
+print(inventory, type(inventory))
+
+#92. 메로나의 가격을 화면에 출력
+print(inventory["메로나"][0],"원")
+
+#93. 메로나의 재고를 화면에 출력
+print(inventory["메로나"][1],"개")
+
+#94. 데이터 추가
+inventory["월드콘"] =(500,7)
+print(inventory)
+
+#95. key값으로 구성된 리스트 생성
+icecream = {'탱크보이': 1200, '폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+print(list(icecream.keys()))
+
+#96. values값으로 구성된 리스트 생성
+icecream = {'탱크보이': 1200, '폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+print(list(icecream.values()))
+
+#97.아이스크림 판매 금액의 총합을 출력
+icecream = {'탱크보이': 1200, '폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+print(sum(icecream.values()))
+
+#98. new_product을 icecream 딕셔너리에 추가
+icecream = {'탱크보이': 1200, '폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+new_product = {'팥빙수':2700, '아맛나':1000}
+icecream.update(new_product)
+print(icecream)
+
+#99. 두 개의 튜플을 하나의 딕셔너리로 변환
+keys = ("apple", "pear", "peach")
+vals = (300, 250, 400)
+result = dict(zip(keys,vals))
+print(result)
+
+#100.  두 개의 리스트를 close_table 이름의 딕셔너리로 생성
+date = ['09/05', '09/06', '09/07', '09/08', '09/09']
+close_price = [10500, 10300, 10100, 10800, 11000]
+close_table = dict(zip(date,close_price))
+print(close_table)
