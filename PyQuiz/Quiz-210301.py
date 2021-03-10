@@ -563,3 +563,35 @@ if user in fruit.values():
     print("정답")
 else:
     print("오답")
+
+#121 사용자로부터 문자 한 개를 입력 받고, 소문자일 경우 대문자로, 대문자 일 경우, 소문자로 변경해서 출력
+A = input("#121 문자입력 : ")
+if A.islower() :
+    print(A.upper())
+else:
+    print(A.lower())
+
+#122 사용자로부터 score를 입력받아 학점을 출력
+score = int(input("#122 학점을 입력: "))
+if 81 <= score <= 100 :
+    print("A학점")
+elif 61 <= score <= 80 :
+    print("B학점")
+elif 41 <= score <= 60 :
+    print("C학점")
+elif 21 <= score <= 40 :
+    print("D학점")
+else :
+    print("E학점")
+
+#123 사용자로부터 달러, 엔, 유로, 또는 위안 금액을 입력받은 후 이를 원으로 변환하는 프로그램을 작성
+환율 = {"달러": 1167,
+        "엔": 1.096,
+        "유로": 1268,
+        "위안": 171}
+price = input("#123 입금액: ")
+
+num, currency = price.split()
+print(float(num) * 환율[currency], "원")
+
+
