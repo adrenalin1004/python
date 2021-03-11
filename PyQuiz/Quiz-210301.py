@@ -594,4 +594,24 @@ price = input("#123 입금액: ")
 num, currency = price.split()
 print(float(num) * 환율[currency], "원")
 
+#124 사용자로부터 세 개의 숫자를 입력 받은 후 가장 큰 숫자를 출력
+A = int(input("#124 첫번째 숫자입력 : "))
+B = int(input("#124 두번째 숫자입력 : "))
+C = int(input("#124 세번째 숫자입력 : "))
 
+if A > B and A > C :
+    print(A)
+elif B > C and B > A:
+    print(B)
+else:
+    print(C)
+
+#125 사용자로부터 휴대전화 번호를 입력 받고, 통신사를 출력하는 프로그램을 작성
+통신사 = { "011" : "SKT",
+           "016" : "KT",
+           "019" : "LGU",
+           "010" : "통합"}
+
+phone_number = input("#125 전화번호를 입력 : ")
+tong,num1,num2 = phone_number.split("-")
+print(통신사[tong])
