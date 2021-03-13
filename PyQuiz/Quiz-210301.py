@@ -3,6 +3,8 @@
 #### https://wikidocs.net/book/922    ####
 ##########################################
 
+# Start of Code
+""" 
 #1. 화면에 Hello World 문자열을 출력하세요
 print('Hello World')
 
@@ -615,3 +617,59 @@ else:
 phone_number = input("#125 전화번호를 입력 : ")
 tong,num1,num2 = phone_number.split("-")
 print(통신사[tong])
+
+#126 사용자로 부터 5자리 우편번호를 입력받고 구를 판별
+A = (input("#126 우편번호 숫자5개(0~9)입력 : "))
+B = A[:3]
+if A[:3] in ["010","011","012"] :
+    print("도봉구")
+elif B in ["013","014","015"] :
+    print("강북구")
+else :
+    print("노원구")
+
+#127 사용자로부터 13자리의 주민등록번호를 입력 받은 후 성별 (남자, 여자)를 출력하는 프로그램을 작성
+A = input("#127 주민번호를 입력(xxx-xxx): ")
+B = A.split("-")[1]
+if B[0] == "1" or B[0] == "3":
+    print("남자입니다. %s" %B[0])
+else :
+    print("여자입니다.%s" %B[0])
+  
+#128 주민 등록 번호를 입력 받은 후 출생지가 서울인지 아닌지 판단하는 코드를 작성
+A = input("#128 주민번호를 입력(xxx-xxx): ")
+B = A.split("-")[1]
+if B[1:3] in ["00","01","02","03","04","05","06","07","08"] :
+    print("출생지 : 서울, %s" %B[1:3])
+elif B[1:3] in ["09","10","11","12"] :
+    print("출생지 : 부산, %s" %B[1:3])
+else : 
+    print("출생지 : 알수없음, %s" %B[1:3])
+
+#129 주민등록번호가 유효한지를 출력하는 프로그램을 작성
+A = input("#128 주민번호를 입력(xxx-xxx): ")
+B = A.split("-")
+C = int(B[0][:1])*2 + int(B[0][1:2])*3 + int(B[0][2:3])*4 + int(B[0][3:4])*5 + int(B[0][4:5])*6 + int(B[0][5:6])*7 
+D = int(B[1][:1])*8 + int(B[1][1:2])*9 + int(B[1][2:3])*2 + int(B[1][3:4])*3 + int(B[1][4:5])*4 + int(B[1][5:6])*5
+sum1 = C+D
+result = 11 - (sum1 % 11)
+if result == int(B[1][6:]):
+    print("유효한 주민번호임")
+else :
+    print("가짜 주민번호임")
+    
+""" # End of Code  
+#130 최고가와 최저가의 차이
+import requests
+btc = requests.get("https://api.bithumb.com/public/ticker/").json()['data']
+print(btc)
+opening_price = btc['opening_price']
+min_price = btc['min_price']
+max_price = btc['max_price']
+valuation = int(max_price) - int(min_price)
+result = int(opening_price) + valuation
+print(result, max_price)
+if result > int(max_price):
+    print("상승장")
+else:
+    print("하락장")
