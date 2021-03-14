@@ -658,7 +658,6 @@ if result == int(B[1][6:]):
 else :
     print("가짜 주민번호임")
     
-""" # End of Code  
 #130 최고가와 최저가의 차이
 import requests
 btc = requests.get("https://api.bithumb.com/public/ticker/").json()['data']
@@ -673,3 +672,129 @@ if result > int(max_price):
     print("상승장")
 else:
     print("하락장")
+
+#131 for문의 실행결과를 예측
+과일 = ["사과", "귤", "수박"]
+for 변수 in 과일:
+    print(변수) #사과, 귤, 수박
+
+#132 for문의 실행결과를 예측하라.
+과일 = ["사과", "귤", "수박"]
+for 변수 in 과일:
+  print("#####132") ####
+
+#133 다음 for 문과 동일한 기능을 수행하는 코드를 작성하세요.
+for 변수 in ["A", "B", "C"]:
+  print(변수)
+
+#134 for문을 풀어서 동일한 동작을하는 코드를 작성하라.
+for 변수 in ["A", "B", "C"]:
+  print("출력:", 변수)
+
+#135 for문을 풀어서 동일한 동작을 하는 코드를 작성하라.
+for 변수 in ["A", "B", "C"]:
+  b = 변수.lower()
+  print("변환:", b)
+
+#136 다음 코드를 for문으로 작성하라.
+# 변수 = 10
+# print(변수)
+# 변수 = 20
+# print(변수)
+# 변수 = 30
+# print(변수)
+for 변수 in [10, 20, 30]:
+    print("#136", 변수)
+
+#137 다음 코드를 for문으로 작성하라.
+# print(10)
+# print(20)
+# print(30)
+for i in [10,20,30]:
+    print("#136", i)
+
+#138 다음 코드를 for문으로 작성하라.
+# print(10)
+# print("-------")
+# print(20)
+# print("-------")
+# print(30)
+# print("-------")
+for i in [10, 20, 30]:
+    print(i)
+    print("#138 --------")
+
+#139 다음 코드를 for문으로 작성하라.
+# print("++++")
+# print(10)
+# print(20)
+# print(30)
+print("#139 +++++")
+for i in [10,20,30]:
+    print(i)
+
+#140 다음 코드를 for문으로 작성하라.
+# print("-------")
+# print("-------")
+# print("-------")
+# print("-------")
+
+for i in [1,2,3,4] :
+    print("#140 --------")
+
+#141 부가세가 포함된 가격을 for 문을 사용해서 화면에 출력하라. 단 부가세는 10원으로 가정한다.
+리스트 = [100, 200, 300]
+for i in 리스트 :
+    i=i+10
+    print(i)
+
+#142 for 문을 사용해서 리스트에 저장된 값을 다음과 같이 출력하라.
+리스트 = ["김밥", "라면", "튀김"]
+for i in 리스트 :
+    print("#142 오늘의 메뉴: ", i)
+
+#143 저장된 문자열의 길이를 다음과 같이 출력하라.
+리스트 = ["SK하이닉스", "삼성전자", "LG전자"]
+for i in 리스트:
+    i = len(i)
+    print(i)
+
+#144 동물 이름과 글자수를 다음과 같이 출력
+리스트 = ['dog', 'cat', 'parrot']
+for i in 리스트:
+    print(i, len(i))
+
+#145 for문을 사용해서 동물 이름의 첫 글자만 출력
+리스트 = ['dog', 'cat', 'parrot']
+for i in 리스트:
+    print(i[0])
+
+#146 for문을 사용해서 다음과 같이 출력
+리스트 = [1, 2, 3]
+for i in 리스트:
+    print("#146 3 x", i)
+
+#147 for문을 사용해서 다음과 같이 출력
+리스트 = [1, 2, 3]
+for i in 리스트:
+    result = (3*i)
+    print("#147 3 x %s = %s" %(i, result))
+    print("3 x {} = {}".format(i, 3*i))
+
+#148 for문을 사용해서 다음과 같이 출력
+리스트 = ["가", "나", "다", "라"]
+for i in 리스트:
+    if i != "가":
+        print(i)
+
+#149 for문을 사용해서 다음과 같이 출력
+리스트 = ["가", "나", "다", "라"]
+리스트1 = 리스트[::2]
+for i in 리스트[::2]:
+    print(i)
+
+""" # End of Code
+#150 for문을 사용해서 다음과 같이 출력
+리스트 = ["가", "나", "다", "라"]
+for i in 리스트[::-1]:
+    print(i)
