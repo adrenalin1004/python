@@ -793,8 +793,117 @@ for i in 리스트:
 for i in 리스트[::2]:
     print(i)
 
-""" # End of Code
 #150 for문을 사용해서 다음과 같이 출력
 리스트 = ["가", "나", "다", "라"]
 for i in 리스트[::-1]:
     print(i)
+
+#151 for문을 사용해서 리스트의 음수를 출력
+리스트 = [3, -20, -3, 44]
+for i in 리스트:
+    if i < 0 :
+        print(i)
+
+#152 for문을 사용해서 3의 배수만을 출력
+리스트 = [3, 100, 23, 44]
+for i in 리스트:
+    if i%3 == 0 :
+        print(i)
+
+#153 리스트에서 20 보다 작은 3의 배수를 출력
+리스트 = [13, 21, 12, 14, 30, 18]
+for i in 리스트:
+    if i < 20 and i % 3 == 0 :
+        print(i)
+
+#154 리스트에서 세 글자 이상의 문자를 화면에 출력
+리스트 = ["I", "study", "python", "language", "!"]
+for i in 리스트 :
+    if len(i) > 3 :
+        print(i)
+
+#155 리스트에서 대문자만 화면에 출력
+리스트 = ["A", "b", "c", "D"]
+for i in 리스트 :
+    if i.isupper() :
+        print(i)
+
+#156 리스트에서 소문자만 화면에 출력
+리스트 = ["A", "b", "c", "D"]
+for i in 리스트 :
+    if i.isupper() == False :
+        print(i)
+
+#157 이름의 첫 글자를 대문자로 변경해서 출력
+리스트 = ['dog', 'cat', 'parrot']
+for i in 리스트:
+    print(i[0].upper()+i[1:])
+
+#158 파일 이름이 저장된 리스트에서 확장자를 제거하고 파일 이름만 화면에 출력하라. 
+리스트 = ['hello.py', 'ex01.py', 'intro.hwp']
+for i in 리스트:
+   #i[0] = 리스트.split(".")
+    print(i.split(".")[0])
+
+#159 파일 이름이 저장된 리스트에서 확장자가 .h인 파일 이름을 출력
+리스트 = ['intra.h', 'intra.c', 'define.h', 'run.py']
+for i in 리스트:
+    if i.split(".")[1] == "h":
+        print(i)
+
+
+#160 파일 이름이 저장된 리스트에서 확장자가 .h나 .c인 파일을 화면에 출력
+리스트 = ['intra.h', 'intra.c', 'define.h', 'run.py']
+for i in 리스트 :
+    if i.split(".")[1] == "h" or i.split(".")[1] == "c"   :
+        print(i)
+
+#161 for문과 range 구문을 사용해서 0~99까지 한 라인에 하나씩 순차적으로 출력하는 프로그램을 작성
+i == 0
+for i in range(100) :
+    print(i)
+
+#162 월드컵은 4년에 한 번 개최된다. range()를 사용하여 2002~2050년까지 중 월드컵이 개최되는 연도를 출력
+for wc in range(2002,2051,4):
+    print(wc)
+
+#163 1부터 30까지의 숫자 중 3의 배수를 출력
+for i in range(3,31,3):
+    print(i)
+
+#164 99부터 0까지 1씩 감소하는 숫자들을, 한 라인에 하나씩 출력
+for i in range(99, 0, -1):
+    print(i)
+
+#165 for문을 사용해서 0.0 와 같이 출력
+for i in range(10):
+    print(i/10)
+
+#166 구구단 3단을 출력
+for i in range(1,10):
+    print("3x%s = %s" %(i, i*3))
+
+#167 구구단 3단을 출력하라. 단 홀수 번째만 출력
+for i in range(1,10):
+    if i % 2 != 0:
+        print("3x%s = %s" %(i, 3*i))
+
+#168 1~10까지의 숫자에 대해 모두 더한 값을 출력하는 프로그램을 for 문을 사용하여 작성
+sum = 0
+for i in range(1,11):
+    sum += i
+print(sum)
+
+#169 1~10까지의 숫자 중 모든 홀수의 합을 출력하는 프로그램을 for 문을 사용하여 작성
+sum = 0
+for i in range(1,11):
+    if i % 2 != 0:
+        sum += i
+print(sum)
+
+""" # End of Code
+#170 1~10까지의 숫자를 모두 곱한 값을 출력하는 프로그램을 for 문을 사용하여 작성
+sum = 1
+for i in range(1,11):
+    sum *= i
+print(sum)
