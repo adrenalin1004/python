@@ -901,9 +901,77 @@ for i in range(1,11):
         sum += i
 print(sum)
 
-""" # End of Code
 #170 1~10까지의 숫자를 모두 곱한 값을 출력하는 프로그램을 for 문을 사용하여 작성
 sum = 1
 for i in range(1,11):
     sum *= i
 print(sum)
+
+#171 리스트의 데이터를 출력하라. 단, for문과 range문을 사용하라.
+price_list = [32100, 32150, 32000, 32500]
+for i in range(len(price_list)):
+    print(price_list[i])
+
+#172 리스트의 데이터를 출력하라. 단, for문과 range문을 사용하라.
+# price_list = [32100, 32150, 32000, 32500]
+# for i in range(len(price_list)):
+#     print(i, price_list[i])
+
+price_list = [32100, 32150, 32000, 32500]
+for i, data in enumerate(price_list):
+    print(i, data)
+
+#173 리스트의 데이터를 출력하라. 단, for문과 range문을 사용하라.
+price_list = [32100, 32150, 32000, 32500]
+for i in range(len(price_list)) :
+    print(3-i, price_list[i])
+
+#174 아래와 같이 리스트의 데이터를 출력하라. 단, for문과 range문을 사용하라.
+price_list = [32100, 32150, 32000, 32500]
+# for i in range(len(price_list)):
+#     if i > 0 :
+#         print("1"+str(i)+"0", price_list[i])
+for i in range(1, 4):
+    print(90 + 10 * i, price_list[i])
+
+#175 my_list를 아래와 같이 출력하라.
+my_list = ["가", "나", "다", "라"]
+
+for i in range(len(my_list)-1):
+    print(my_list[i], my_list[i+1])
+
+#176 리스트를 아래와 같이 출력하라.
+my_list = ["가", "나", "다", "라", "마"]
+
+for i in range(len(my_list)-2) :
+    print(my_list[i], my_list[i+1], my_list[i+2])
+
+#177 반복문과 range 함수를 사용해서 my_list를 아래와 같이 출력하라.
+my_list = ["가", "나", "다", "라"]
+# for i in range(1):
+#     print(my_list[3], my_list[2])
+#     print(my_list[2], my_list[1])
+#     print(my_list[1], my_list[0])
+for i in range(len(my_list)-1): #4
+    print(my_list[3-i], my_list[2-i])
+
+#178 리스트에는 네 개의 정수가 저장되어 있다. 각각의 데이터에 대해서 자신과 우측값과의 차분값을 화면에 출력하라.
+my_list = [100, 200, 400, 800]
+for i in range(len(my_list)-1):
+    print(my_list[i+1]-my_list[i])
+
+#179 리스트에는 6일 간의 종가 데이터가 저장되어 있다. 종가 데이터의 3일 이동 평균을 계산하고 이를 화면에 출력하라.
+my_list = [100, 200, 400, 800, 1000, 1300]
+for i in range(len(my_list)-2):
+    print((my_list[i]+my_list[i+1]+my_list[i+2])/3)
+
+""" # End of Code
+#180 리스트에 5일간의 저가, 고가 정보가 저장돼 있다. 고가와 저가의 차를 변동폭이라고 정의할 때, low, high 두 개의 리스트를 사용해서 5일간의 변동폭을 volatility 리스트에 저장하라.
+low_prices  = [100, 200, 400, 800, 1000]
+high_prices = [150, 300, 430, 880, 1000]
+volatility = []
+for i in range(len(low_prices)):
+    #print(low_prices[i], high_prices[i])
+    #volatility = (high_prices[i]-low_prices[i])
+    volatility.append(high_prices[i] - low_prices[i])
+    print(volatility)
