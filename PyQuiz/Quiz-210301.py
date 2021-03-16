@@ -965,7 +965,6 @@ my_list = [100, 200, 400, 800, 1000, 1300]
 for i in range(len(my_list)-2):
     print((my_list[i]+my_list[i+1]+my_list[i+2])/3)
 
-""" # End of Code
 #180 리스트에 5일간의 저가, 고가 정보가 저장돼 있다. 고가와 저가의 차를 변동폭이라고 정의할 때, low, high 두 개의 리스트를 사용해서 5일간의 변동폭을 volatility 리스트에 저장하라.
 low_prices  = [100, 200, 400, 800, 1000]
 high_prices = [150, 300, 430, 880, 1000]
@@ -975,3 +974,58 @@ for i in range(len(low_prices)):
     #volatility = (high_prices[i]-low_prices[i])
     volatility.append(high_prices[i] - low_prices[i])
     print(volatility)
+
+#181 하나의 행을 하나의 리스트로, 총 3개의 리스트를 갖는 이차원 리스트 apart를 정의하라.
+APT = [["101호","102호"],["201호","202호"],["301호","302호"]]
+print(APT)
+
+#182 하나의 열을 하나의 리스트로, 총 2개의 리스트를 갖는 이차원 리스트 stock을 정의하라.
+stock = [["시가",100,200,300],["종가",80,210,330]]
+print(stock)
+
+#183 stock 이름의 딕셔너리로 표현하라
+stock = {"시가": [100,200,300], "종가":[80,210,330]}
+print(stock)
+
+#184 stock 이라는 이름의 딕셔너리로 표현하라, 날짜를 key로 저장
+stock = {"10/10":[80,110,70,90], "10/11":[210,230,190,200] }
+print(stock)
+
+#185 리스트에 저장된 데이터를 아래와 같이 출력하라.
+apart = [ [101, 102], [201, 202], [301, 302] ]
+for row in apart:
+    for col in row:
+        print(col, "호")
+
+#186 리스트에 저장된 데이터를 아래와 같이 출력하라.
+apart = [ [101, 102], [201, 202], [301, 302] ]
+for i in apart[::-1]:
+    for row in i:
+        print(row)
+
+""" # End of Code
+#187 리스트에 저장된 데이터를 아래와 같이 출력하라.
+apart = [ [101, 102], [201, 202], [301, 302] ]
+for i in apart[::-1]:
+    for col in i[::-1]:
+        print(col)
+
+#188 리스트에 저장된 데이터를 아래와 같이 출력하라.
+apart = [ [101, 102], [201, 202], [301, 302] ]
+for i in apart:
+    for col in i :
+        print(col,"호" , "\n ------")
+
+#189 리스트에 저장된 데이터를 아래와 같이 출력하라.
+apart = [ [101, 102], [201, 202], [301, 302] ]
+for i in apart:
+    for col in i :
+        print(col)
+    print("---------")
+
+#190 리스트에 저장된 데이터를 아래와 같이 출력하라.
+apart = [ [101, 102], [201, 202], [301, 302] ]
+for i in apart:
+    for col in i :
+        print(col)
+print("---------")
