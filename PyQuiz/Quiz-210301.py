@@ -1003,7 +1003,6 @@ for i in apart[::-1]:
     for row in i:
         print(row)
 
-""" # End of Code
 #187 리스트에 저장된 데이터를 아래와 같이 출력하라.
 apart = [ [101, 102], [201, 202], [301, 302] ]
 for i in apart[::-1]:
@@ -1029,3 +1028,53 @@ for i in apart:
     for col in i :
         print(col)
 print("---------")
+
+#191 수수료를 0.014 %로 가정할 때, 각 가격에 수수료를 포함한 가격을 한라인에 하나씩 출력하라.
+data = [
+    [ 2000,  3050,  2050,  1980],
+    [ 7500,  2050,  2050,  1980],
+    [15450, 15050, 15550, 14900]
+]
+for i in data:
+    for col in i:
+        print(col+(col*0.014/100))
+
+#192 191번의 출력 결과에 행단위로 "----" 구분자를 추가하라.
+for i in data:
+    for col in i:
+        print(col+(col*0.014/100))
+    print("-------------")
+
+#193. 192 번 문제의 결괏값을 result 이름의 리스트에 1차원 배열로 저장하라.
+data = [
+    [ 2000,  3050,  2050,  1980],
+    [ 7500,  2050,  2050,  1980],
+    [15450, 15050, 15550, 14900]
+]
+result = []
+for i in data:
+    for col in i:
+        result.append(col+(col*0.014/100))
+print(i)
+print(result)
+
+#194. 191번 문제의 결괏값을 result 이름의 리스트에 2차원 배열로 저장하라. 저장 포맷은 아래와 같다. 각 행에 대한 데이터끼리 리스트에 저장되어야 한다.
+data = [
+    [ 2000,  3050,  2050,  1980],
+    [ 7500,  2050,  2050,  1980],
+    [15450, 15050, 15550, 14900]
+]
+for i in data:
+    result = []
+    for col in i :
+        result.append(col+(col*0.014/100))
+    print(result)
+
+""" # End of Code
+#195. ohlc 리스트에는 시가(open), 고가 (high), 저가 (low) , 종가(close)가 날짜별로 저장돼 있다. 화면에 종가데이터를 출력하라.
+ohlc = [["open", "high", "low", "close"],
+        [100, 110, 70, 100],
+        [200, 210, 180, 190],
+        [300, 310, 300, 310]]
+for i in ohlc[1:]:
+    print(i[3])
