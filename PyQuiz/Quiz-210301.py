@@ -1070,7 +1070,6 @@ for i in data:
         result.append(col+(col*0.014/100))
     print(result)
 
-""" # End of Code
 #195. ohlc 리스트에는 시가(open), 고가 (high), 저가 (low) , 종가(close)가 날짜별로 저장돼 있다. 화면에 종가데이터를 출력하라.
 ohlc = [["open", "high", "low", "close"],
         [100, 110, 70, 100],
@@ -1078,3 +1077,48 @@ ohlc = [["open", "high", "low", "close"],
         [300, 310, 300, 310]]
 for i in ohlc[1:]:
     print(i[3])
+
+#196. ohlc 리스트에는 시가(open), 고가 (high), 저가 (low) , 종가(close)가 날짜별로 저장돼 있다. 종가가 150원보다 큰경우에만 종가를 출력하라.
+ohlc = [["open", "high", "low", "close"],
+        [100, 110, 70, 100],
+        [200, 210, 180, 190],
+        [300, 310, 300, 310]]
+
+for i in ohlc[1:] :
+    if i[3] > 150:
+      print(i[3])
+
+#197. 종가가 시가 보다 크거나 같은 경우에만 종가를 출력하라.
+ohlc = [["open", "high", "low", "close"],
+        [100, 110, 70, 100],
+        [200, 210, 180, 190],
+        [300, 310, 300, 310]]
+
+for i in ohlc[1:] :
+    if i[3] >= i[0] :
+        print(i[3])
+ 
+""" # End of Code
+#198. ohlc 리스트에는 시가(open), 고가 (high), 저가 (low) , 종가(close)가 날짜별로 저장돼 있다. 고가와 저가의 차이를 변동폭으로 정의할 때 변동폭을 volatility 이름의 리스트에 저장하라.
+ohlc = [["open", "high", "low", "close"],
+        [100, 110, 70, 100],
+        [200, 210, 180, 190],
+        [300, 310, 300, 310]]
+volatility = []
+#for i in ohlc[1:] :
+    #for col in i:
+#    volatility.append(i[1]-i[2])
+#print(volatility)
+
+#199. 종가가 시가보다 높은 날의 변동성 (고가 - 저가)을 화면에 출력하라
+for i in ohlc[1:] :
+    if i[3] > i[0]:
+       volatility.append(i[1]-i[2])
+       print(volatility)
+
+#200. 시가에 매수해서 종가에 매도 했을 경우 총 수익금을 계산하라.
+val = 0
+for i in ohlc[1:] :
+    #val = i[3] - i[0]
+    val += (i[3] - i[0])
+    print(val)
