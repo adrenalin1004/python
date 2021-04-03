@@ -1501,7 +1501,70 @@ rename()
 #250 numpy 모듈의 arange 함수를 사용해서 0.0 부터 5.0까지 0.1씩 증가하는 값을 화면에 출력해보세요.
 print("#249----------------------------")
 import numpy
-for i in numpy.arange(0, 5, 0.1):
+for i in numpy.arange(0, 1, 0.1):
     print(i)
 
-#test
+#251 클래스, 객체, 인스턴스에 대해 설명해봅시다.
+
+#252 클래스 정의, 비어있는 사람 (Human) 클래스를 "정의" 해보세요.
+# class Human:
+#     def __init__(self):
+#         print("메롱")
+# print(Human)
+
+#253 인스턴스 생성, 사람 (Human) 클래스의 인스턴스를 "생성" 하고 이를 areum 변수로 바인딩해보세요.
+# class Human:
+#     def __init__(self):
+#         print("areum")
+# areum = Human()
+
+#254 클래스 생성자-1, 사람 (Human) 클래스에 "응애응애"를 출력하는 생성자를 추가하세요.
+class Human:
+    def __init__(self):
+        print("응애응애")
+areum = Human()
+
+#255 클래스 생성자-2, 사람 (Human) 클래스에 (이름, 나이, 성별)을 받는 생성자를 추가하세요.
+#areum = Human("아름", 25, "여자")
+class Human:
+    def __init__(self, name, age, sex):
+        self.name = name
+        self.age = age
+        self.sex = sex
+    def who(self):
+        print("이름: {} 나이: {} 성별: {}" .format(self.name, self.age, self.sex))
+        # print("이름: ", ret.name)
+        # print("나이: ",ret.age)
+        # print("성별: ", ret.sex)
+         #print("이름: {} 나이: {} 성별: {}".format(self.name, self.age, self.sex))
+    def setInfo(self, name, age, sex):
+        self.name = name
+        self.age = age
+        self.sex = sex
+    
+    def __del__(self):
+        print("나의 죽음을 알리지 말라")
+
+ret = Human("불명", "미상", "모름")
+
+#256 인스턴스 속성에 접근
+#255에서 생성한 인스턴스의 이름, 나이, 성별을 출력하세요. 인스턴스 변수에 접근하여 값을 출력하면 됩니다.
+#이름: 조아름, 나이: 25, 성별: 여자
+
+#257 클래스 메소드 - 1, 사람 (Human) 클래스에서 이름, 나이, 성별을 출력하는 who() 메소드를 추가하세요.
+ret.who()
+#이름: 조아름, 나이: 25, 성별: 여자
+
+#258 클래스 메소드 - 2, 사람 (Human) 클래스에 (이름, 나이, 성별)을 받는 setInfo 메소드를 추가하세요.
+ret.setInfo("조아람", 25, "여자")
+ret.who()
+
+#259 클래스 소멸자, 사람 (human) 클래스에 "나의 죽음을 알리지 말라"를 출력하는 소멸자를 추가하세요.
+del(ret)
+
+#260 에러의 원인,아래와 같은 에러가 발생한 원인에 대해 설명하세요.
+class OMG : 
+    def print() :
+        print("Oh my god")
+myStock = OMG()
+myStock.print()
