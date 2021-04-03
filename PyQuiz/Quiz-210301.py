@@ -1560,11 +1560,11 @@ ret.setInfo("조아람", 25, "여자")
 ret.who()
 
 #259 클래스 소멸자, 사람 (human) 클래스에 "나의 죽음을 알리지 말라"를 출력하는 소멸자를 추가하세요.
-del(ret)
+del(Human)
 
 #260 에러의 원인,아래와 같은 에러가 발생한 원인에 대해 설명하세요.
-class OMG : 
-    def print() :
-        print("Oh my god")
-myStock = OMG()
-myStock.print()
+# class OMG : 
+#     def print() :
+#         print("Oh my god")
+# myStock = OMG()
+# myStock.print()
