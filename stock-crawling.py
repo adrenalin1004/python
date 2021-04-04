@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+from datetime import datetime
+import time
 
 # html = '''
 # <ul>
@@ -18,11 +20,37 @@ import re
 # for r in result:
 #     print(r.text)
 
-code = "H0000472"
-
 r = requests.get("http://starwars.hankyung.com/cast/?refresh=1&id=ALL&trade=0" ).text
 soup = BeautifulSoup(r, "html.parser")
-#hotKeys = soup.select("tbody > tr > td ") #td.lft span.crUp
-hotKeys = soup.select("tbody > tr:nth-child(1) > td:nth-child(2) > a ")
-#contentsList > tr:nth-child(1) > td:nth-child(2) > a
-print(hotKeys)
+items = soup.select("tbody > tr:nth-child(1) > td ") #td.lft span.crUp
+tt = soup.select("#contentsList > tr:nth-child(1) > td:nth-child(5) ") #td.lft span.crUp
+print("--------------------------")
+print(tt)
+print("--------------------------")
+#hotKeys = soup.select("tbody > tr:nth-child(1) > td:nth-child(2) > a ")
+
+stocklist = []
+
+for item in items:
+    temp = []
+    name = item.select_one("#contentsList > tr:nth-child(1) > td:nth-child(2) > a")
+    sell = item.select_one("#contentsList > tr:nth-child(1) > td:nth-child(3) > span")
+    stock = item.select_one("#contentsList > tr:nth-child(1) > td:nth-child(4) > a:nth-child(1)")
+    price = item.select("#contentsList > tr:nth-child(1) > td.rgt")
+#contentsList > tr:nth-child(1) > td:nth-child(5)
+    temp.append(name)
+    temp.append(sell)
+    temp.append(stock)
+    temp.append(price)
+    stocklist.append(temp)
+#print(stocklist) 
+
+while True:
+    now = datetime.now()
+    print(now)
+
+    for item1 in items:
+        print(stocklist)
+    print("---새로고침--------------")
+    time.sleep(10)
+#print(items)
