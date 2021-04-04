@@ -33,7 +33,7 @@ df = df.sort_values(by=['date'], ascending=True)
 df.head()
 
 print(df)
-
+'''
 import matplotlib.pyplot as plt
 # 필요한 모듈 import 하기 
 import plotly
@@ -52,3 +52,4 @@ plt.tick_params(
     labelbottom=False) # labels along the bottom edge are off
 plt.savefig(company + ".png")
 plt.show()
+'''
