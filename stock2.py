@@ -4,16 +4,22 @@ import re
 from datetime import datetime
 import time
 
-from slacker import Slacker
 
-slack = Slacker('xoxb-1591223889366-1610636203889-7iNaq9u2eREt37Nw67fv9ElV')
+def post_message(token, channel, text):
+    response = requests.post("https://slack.com/api/chat.postMessage",
+        headers={"Authorization": "Bearer "+token},
+        data={"channel": channel,"text": text}
+    )
+    print(response)
 
-# Send a message to #general channel
-#slack.chat.post_message('#test', '테스트 테스트 fellow slackers!')
+myToken = "xoxb-1591223889366-1934593284436-bJewRQ9b4xSadpfjhGcUmDAY"
+
+#post_message(myToken, "#stock", "slack 테스트")
+
 
 print("---stock2--------------")
 #r = requests.get("http://wap.futurewiz.co.kr/dragon/stockgame_rt/starwars202103/detail_transaction/H0000469?charge=yes")
-r = requests.get("http://wap.futurewiz.co.kr/dragon/stockgame_rt/starwars202103/detail_transaction/H0000472?charge=yes")
+r = requests.get("http://wap.futurewiz.co.kr/dragon/stockgame_rt/starwars202103/detail_transaction/H0000476?charge=yes")
 soup = BeautifulSoup(r.content.decode('euc-kr', 'replace'), "html.parser")
 items = soup.select("#mainCont > div > table > tbody") #td.lft span.crUp
 
@@ -82,8 +88,9 @@ for item in zip(date, name, sell, stock, price):
             print(pricestr)
             print("---새로고침--------------\n")
             print(datestr+" / "+namestr+" / "+sellstr+" / "+stockstr+" / "+pricestr)
+            post_message(myToken, "#stock", datestr+" / "+namestr+" / "+sellstr+" / "+stockstr+" / "+pricestr)
             time.sleep(10)
-            slack.chat.post_message('#test', datestr+" / "+namestr+" / "+sellstr+" / "+stockstr+" / "+pricestr)
+            #slack.chat.post_message('#stock', datestr+" / "+namestr+" / "+sellstr+" / "+stockstr+" / "+pricestr)
     else:
         print("꽝")
 
