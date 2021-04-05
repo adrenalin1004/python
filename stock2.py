@@ -17,10 +17,21 @@ sell = soup.select_one("#mainCont > div > table > tbody > tr:nth-child(2) > td:n
 stock = soup.select_one("#mainCont > div > table > tbody > tr:nth-child(2) > td.al > a")
 price = soup.select_one("#mainCont > div > table > tbody > tr:nth-child(2) > td:nth-child(9)")
 
+date2 = date.string
+print("date2: ",date2,type(date2))
+
 stocklist = []
 
 for item in zip(date, name, sell, stock, price):
     now = datetime.now()
+    print("now: ",now, type(now))
+    print("date: ",date, type(date))
+    date_conv = datetime.strptime(date2, '%m/%d %H:%M')
+    date_conv2 = date_conv.replace(year=2021)
+    print("date_conv2: ",date_conv2, type(date_conv2))
+
+    dd = date_conv2 - now
+    print("dd: date_conv2 - now ",dd, type(dd))
     format_date = now.strftime("%m/%d")
     # stocklist.append(
     #     {
@@ -39,11 +50,11 @@ for item in zip(date, name, sell, stock, price):
     date_diff = stocklist[0].string
     date_diff_con = date_diff.split(" ")
     date_int = date_diff_con[0]
-    # print(date_int, type(date_int))
-    # print(format_date, type(format_date))
-    # print(date_int == format_date)
+    print("date_int: ",date_int, type(date_int))
+    print("format_date: ",format_date, type(format_date))
+    print("date_int=format_date:  ",date_int == format_date)
 
-    if date_int == format_date :
+    if date_conv2 > now :
         while True:
             now = datetime.now()
             print(now)
