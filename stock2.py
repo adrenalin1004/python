@@ -12,15 +12,16 @@ def post_message(token, channel, text):
     )
     print(response)
 
-myToken = "xoxb-1591223889366-1925051753862-NZN3fPQI53FEsJc6AeJo6EIB"
+myToken = "xoxb-1591223889366-1925051753862-eiNR145Pou2GyOgUJB0dzCUx"
+
 
 #post_message(myToken, "#stock", "slack 테스트")
 try:
     while True:
         print("---stock2--------------")
-        #r = requests.get("http://wap.futurewiz.co.kr/dragon/stockgame_rt/starwars202103/detail_transaction/H0000469?charge=yes") #prime club
+        r = requests.get("http://wap.futurewiz.co.kr/dragon/stockgame_rt/starwars202103/detail_transaction/H0000469?charge=yes") #prime club
         #r = requests.get("http://wap.futurewiz.co.kr/dragon/stockgame_rt/starwars202103/detail_transaction/H0000476?charge=yes") #이화진
-        r = requests.get("http://wap.futurewiz.co.kr/dragon/stockgame_rt/starwars202103/detail_transaction/H0000474?charge=yes", verify=False) #홍광진
+        #r = requests.get("http://wap.futurewiz.co.kr/dragon/stockgame_rt/starwars202103/detail_transaction/H0000474?charge=yes", verify=False) #홍광진
         soup = BeautifulSoup(r.content.decode('euc-kr', 'replace'), "html.parser")
         items = soup.select("#mainCont > div > table > tbody") #td.lft span.crUp
 
