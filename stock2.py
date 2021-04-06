@@ -12,7 +12,7 @@ def post_message(token, channel, text):
     )
     print(response)
 
-myToken = "xoxb-1591223889366-1915082469319-hiowMCvZxXKNHQajoJeLxlo2"
+myToken = "xoxb-1591223889366-1925051753862-NZN3fPQI53FEsJc6AeJo6EIB"
 
 #post_message(myToken, "#stock", "slack 테스트")
 try:
@@ -90,7 +90,7 @@ try:
 
                     print(datestr+" / "+namestr+" / "+sellstr+" / "+stockstr+" / "+pricestr)
                     print("---새로고침--------------\n")
-                    #post_message(myToken, "#stock", datestr+" / "+namestr+" / "+sellstr+" / "+stockstr+" / "+pricestr)
+                    post_message(myToken, "#stock", datestr+" / "+namestr+" / "+sellstr+" / "+stockstr+" / "+pricestr)
                     time.sleep(60)
             else:
                 now2 = datetime.now()
