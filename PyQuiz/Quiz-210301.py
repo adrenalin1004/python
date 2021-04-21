@@ -1710,7 +1710,7 @@ for i in list:
 #계좌번호: 111-11-111111
 
 import random
-
+'''
 class Account:
     def __init__(self, name, balance):
        self.name = name
@@ -1730,3 +1730,73 @@ print(kim.name)
 print(kim.balance)
 print(kim.bank)
 print(kim.account_number)
+'''
+#272 클래스 변수, 클래스 변수를 사용해서 Account 클래스로부터 생성된 계좌 객체의 개수를 저장하세요.
+class Account:
+    account_count = 0
+
+    def __init__(self, name, balance):
+        self.name = name
+        self.balance = balance
+        self.bank =  'SC은행'
+
+        num1 = random.randint(0,999)
+        num2 = random.randint(0,99)
+        num3 = random.randint(0,999999)
+
+        num1 = str(num1).zfill(3)
+        num2 = str(num2).zfill(2)
+        num3 = str(num3).zfill(6)
+        self.account_number = num1 + '-' + num2 + '-' + num3
+
+        Account.account_count += 1
+
+user = Account('홍길동', 1000)
+print(Account.account_count)
+lee = Account("이민수", 100)
+print(Account.account_count)
+
+#273 클래스 변수 출력, Account 클래스로부터 생성된 계좌의 개수를 출력하는 get_account_num() 메서드를 추가하세요.
+class Account:
+    account_count = 0
+
+    def __init__(self, name, balance):
+        self.name = name
+        self.balance = balance
+        self.bank = 'KB은행'
+
+        num1 = random.randint(0,999)
+        num2 = random.randint(0,99)
+        num3 = random.randint(0,999999)
+
+        num1 = str(num1).zfill(3)
+        num2 = str(num2).zfill(2)
+        num3 = str(num3).zfill(6)
+        self.account_number = num1 + '-' + num2 + '-' + num3
+
+        Account.account_count += 1
+    
+    def get_account_num(cls):
+        print(cls.account_count)
+    
+    def deposit(self, amount):
+        print("deposit")
+        if amount >= 1:
+            self.balance += amount
+
+    def withdraw(self, amount):
+        if self.balance > amount:
+            self.balance -= amount
+
+user = Account('홍길동', 1000)
+user2 = Account('홍길동2', 100)
+user3 = Account('홍길동3', 10)
+#print(Account.account_count)
+user.get_account_num()
+
+#274 입금 메서드, Account 클래스에 입금을 위한 deposit 메서드를 추가하세요. 입금은 최소 1원 이상만 가능합니다.
+user.deposit(100)
+
+#275 출금 메서드, Account 클래스에 출금을 위한 withdraw 메서드를 추가하세요. 출금은 계좌의 잔고 이상으로 출금할 수는 없습니다.
+user.withdraw(80)
+print(user.balance)
