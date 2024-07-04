@@ -1,45 +1,60 @@
 def main():
     # 각 홀의 파 값과 사용한 클럽을 저장할 리스트
     holes = []
-    
+
     while True:
-        # 각 홀의 파 점수 입력
-        try:
-            par = int(input("파 점수를 입력하세요 (종료하려면 -1 입력): "))
-            if par == -1:
-                break
-        except ValueError:
-            print("유효한 숫자를 입력하세요.")
-            continue
+        action = input("점수를 입력하려면 '입력', 기록을 보려면 '기록', 프로그램을 종료하려면 '종료'를 입력하세요: ").strip().lower()
 
-        # 스코어 입력
-        try:
-            score = int(input("스코어를 입력하세요: "))
-        except ValueError:
-            print("유효한 숫자를 입력하세요.")
-            continue
+        if action == '입력':
+            while True:
+                # 각 홀의 파 점수 입력
+                try:
+                    par = int(input("파 점수를 입력하세요 (입력 완료하려면 -1 입력): "))
+                    if par == -1:
+                        break
+                except ValueError:
+                    print("유효한 숫자를 입력하세요.")
+                    continue
 
-        # 사용한 클럽 입력
-        clubs = input("사용한 클럽을 입력하세요 (쉼표로 구분): ").split(',')
+                # 스코어 입력
+                try:
+                    score = int(input("스코어를 입력하세요: "))
+                except ValueError:
+                    print("유효한 숫자를 입력하세요.")
+                    continue
 
-        # 홀 기록 저장
-        hole_record = {
-            'par': par,
-            'score': score,
-            'clubs': clubs
-        }
-        holes.append(hole_record)
-        
-        print("기록이 저장되었습니다.\n")
+                # 사용한 클럽 입력
+                clubs = input("사용한 클럽을 입력하세요 (쉼표로 구분): ").split(',')
 
-    # 모든 입력이 완료되면 기록을 출력
-    print("\n전체 기록:")
-    total_score = 0
-    for i, hole in enumerate(holes, 1):
-        print(f"{i}번 홀 - 파: {hole['par']}, 스코어: {hole['score']}, 사용한 클럽: {', '.join(hole['clubs'])}")
-        total_score += hole['score']
+                # 홀 기록 저장
+                hole_record = {
+                    'par': par,
+                    'score': score,
+                    'clubs': clubs
+                }
+                holes.append(hole_record)
+                
+                print("기록이 저장되었습니다.\n")
 
-    print(f"\n총 스코어: {total_score}")
+        elif action == '기록':
+            # 모든 입력이 완료되면 기록을 출력
+            if not holes:
+                print("기록이 없습니다.\n")
+            else:
+                print("\n전체 기록:")
+                total_score = 0
+                for i, hole in enumerate(holes, 1):
+                    print(f"{i}번 홀 - 파: {hole['par']}, 스코어: {hole['score']}, 사용한 클럽: {', '.join(hole['clubs'])}")
+                    total_score += hole['score']
+
+                print(f"\n총 스코어: {total_score}\n")
+
+        elif action == '종료':
+            print("프로그램을 종료합니다.")
+            break
+
+        else:
+            print("유효한 입력이 아닙니다. 다시 시도하세요.\n")
 
 if __name__ == "__main__":
     main()
